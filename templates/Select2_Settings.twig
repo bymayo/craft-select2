@@ -1,0 +1,26 @@
+{#
+/**
+ * Select2 plugin for Craft CMS
+ *
+ * Select2 Settings.twig
+ *
+ * @author    Jason Mayo
+ * @copyright Copyright (c) 2016 Jason Mayo
+ * @link      bymayo.co.uk
+ * @package   Select2
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% includeCssResource "select2/css/Select2_Style.css" %}
+{% includeJsResource "select2/js/Select2_Script.js" %}
+
+{{ forms.textField({
+    label: 'Some Setting',
+    instructions: 'Enter some setting here.',
+    id: 'someSetting',
+    name: 'someSetting', 
+    value: settings['someSetting']})
+}}
