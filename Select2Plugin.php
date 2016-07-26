@@ -124,7 +124,7 @@ class Select2Plugin extends BasePlugin
     protected function defineSettings()
     {
         return array(
-            'someSetting' => array(AttributeType::String, 'label' => 'Some Setting', 'default' => ''),
+            'jsonPath' => array(AttributeType::String, 'label' => 'JSON Path', 'default' => ''),
         );
     }
 
@@ -133,7 +133,7 @@ class Select2Plugin extends BasePlugin
      */
     public function getSettingsHtml()
     {
-       return craft()->templates->render('select2/Select2_Settings', array(
+       return craft()->templates->render('select2/settings/settings', array(
            'settings' => $this->getSettings()
        ));
     }
@@ -145,7 +145,6 @@ class Select2Plugin extends BasePlugin
      */
     public function prepSettings($settings)
     {
-        // Modify $settings here...
 
         return $settings;
     }

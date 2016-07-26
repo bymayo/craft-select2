@@ -44,10 +44,11 @@ class Select2FieldType extends BaseFieldType
         $id = craft()->templates->formatInputId($name);
         $namespacedId = craft()->templates->namespaceInputId($id);
 
-/* -- Include our Javascript & CSS */
-
-        craft()->templates->includeCssResource('select2/css/fields/Select2FieldType.css');
-        craft()->templates->includeJsResource('select2/js/fields/Select2FieldType.js');
+        craft()->templates->includeCssResource('select2/css/style.css');
+        craft()->templates->includeJsResource('select2/js/script.js');
+        
+        craft()->templates->includeCssResource('select2/vendor/select2/css/select2.min.css');
+        craft()->templates->includeJsResource('select2/vendor/select2/js/select2.full.min.js');
 
 /* -- Variables to pass down to our field.js */
 
@@ -67,10 +68,28 @@ class Select2FieldType extends BaseFieldType
             'id' => $id,
             'name' => $name,
             'namespaceId' => $namespacedId,
-            'values' => $value
+            'value' => $value,
+            'options' => [['label' => 'Select', 'value' => 'Test']]
             );
 
-        return craft()->templates->render('select2/fields/Select2FieldType.twig', $variables);
+        return craft()->templates->render('select2/field/field.twig', $variables);
+    }
+    
+    protected function defineSettings()
+    {
+        return array(
+            'multiple' => array(AttributeType::String),
+            'limit' => array(AttributeType::String),
+            'list' => array(AttributeType::String),
+            'json' => array(AttributeType::String)
+        );
+    }
+    
+    public function getSettingsHtml()
+    {
+        return craft()->templates->render('select2/field/settings.twig', array(
+            'settings' => $this->getSettings()
+        ));
     }
 
     /**

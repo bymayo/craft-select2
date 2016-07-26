@@ -14,11 +14,11 @@
 
 {% import "_includes/forms" as forms %}
 
-{{ forms.textField({
-    id: id ~ 'someField',
-    class: 'nicetext',
+{{ forms.multiSelectField({
+    id: id ~ '-id',
+    class: 'js-select2',
     name: name ~ '[someField]',
-    value: values.someField,
-    errors: values.getErrors('someField'),
+    value: value.someField,
     required: false,
+    options: options
 }) }}

@@ -1,0 +1,69 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.lightswitchField({
+    label: 'Select Multiple?'|t,
+    id: 'multiple',
+    name: 'multiple',
+    on: false,
+    required: true
+}) }}
+
+{{ forms.textField({
+    label: 'Limit'|t,
+    type: 'number',
+    instructions: 'Limit the amount of results that can be chosen',
+    id: 'limit',
+    name: 'limit',
+    value: settings.limit
+}) }}
+
+{{ forms.radioGroupField({
+    label: 'List'|t,
+    id: 'list',
+    name: 'list',
+    value: (settings.list ? settings.list : 'json'),
+    required: true,
+    options: {
+		'json' : {
+            'value': 'json',
+            'label': 'JSON'
+		},
+		'countries' : {
+            'value': 'countries',
+            'label': 'Countries'
+		},
+		'countriesIso2' : {
+            'value': 'countriesIso2',
+            'label': 'Countries (2 Digit ISO)'
+		},
+		'countriesIso3' : {
+            'value': 'countriesIso3',
+            'label': 'Countries (3 Digit ISO)'
+		},
+		'usStates' : {
+            'value': 'usStates',
+            'label': 'US States'
+		},
+		'ukCounties' : {
+            'value': 'ukCounties',
+            'label': 'UK Counties'
+		},
+		'currency' : {
+            'value': 'currency',
+            'label': 'Currency'
+		},
+		'social' : {
+            'value': 'social',
+            'label': 'Social'
+		}		
+    }
+}) }}
+
+{{ forms.textField({
+    label: 'JSON'|t,
+    instructions: 'JSON files are pulled from the <strong><a href="/admin/settings/plugins/select2" target="_blank">JSON Location</a></strong> option in the Select2 fieldtype settings',
+    id: 'json',
+    name: 'json',
+    value: settings.json,
+    placeholder: 'e.g. countries.json'
+}) }}

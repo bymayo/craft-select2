@@ -18,9 +18,11 @@
 {% includeJsResource "select2/js/Select2_Script.js" %}
 
 {{ forms.textField({
-    label: 'Some Setting',
-    instructions: 'Enter some setting here.',
-    id: 'someSetting',
-    name: 'someSetting', 
-    value: settings['someSetting']})
+	    label: 'JSON Location',
+	    instructions: 'Path to the folder that contains JSON files, inside craft/templates',
+	    id: 'jsonPath',
+	    name: 'jsonPath', 
+    	value: settings['jsonPath'],
+    	placeholder: 'e.g. json/arrays'
+	})
 }}
