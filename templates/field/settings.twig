@@ -4,9 +4,11 @@
     label: 'Select Multiple?'|t,
     id: 'multiple',
     name: 'multiple',
-    on: false,
+    on: false, 
     required: true
 }) }}
+
+<!-- ^^^ ON Needs to pull through value -->
 
 {{ forms.textField({
     label: 'Limit'|t,
@@ -48,13 +50,17 @@
             'value': 'ukCounties',
             'label': 'UK Counties'
 		},
-		'currency' : {
-            'value': 'currency',
-            'label': 'Currency'
+		'currencyIso3' : {
+            'value': 'currencyIso3',
+            'label': 'Currency (3 Digit ISO)'
 		},
-		'social' : {
-            'value': 'social',
-            'label': 'Social'
+		'languagesIso2' : {
+            'value': 'languagesIso2',
+            'label': 'Languages (2 Digit ISO)'
+		},
+		'socialNetworks' : {
+            'value': 'socialNetworks',
+            'label': 'Social Networks'
 		}		
     }
 }) }}

@@ -41,22 +41,16 @@ class Select2FieldType extends BaseFieldType
         if (!$value)
             $value = new Select2Model();
 
+		$settings = $this->getSettings();
+
 		// Reformat the input name into something that looks more like an ID
         $id = craft()->templates->formatInputId($name);
         
         // Figure out what that ID is going to look like once it has been namespaced
         $namespacedId = craft()->templates->namespaceInputId($id);
         
-/*
-        Select2::log($id);
-        Select2::log($namespacedId);
-*/
-        
         $jsonVars = array(
-            'id' => $id,
-            'name' => $name,
-            'namespace' => $namespacedId,
-            'prefix' => craft()->templates->namespaceInputId("")
+            'namespaceId' => $namespacedId,
 		);
 
         $jsonVars = json_encode($jsonVars);
@@ -67,21 +61,28 @@ class Select2FieldType extends BaseFieldType
         craft()->templates->includeCssResource('select2/css/style.css');
         craft()->templates->includeJsResource('select2/js/script.js');
 
-        craft()->templates->includeJs("$('#{$namespacedId}').Select2FieldType(" . $jsonVars . ");");
+        craft()->templates->includeJs("$('#{$namespacedId}').Select2FieldType(".$jsonVars.");");
+        
+        // $templatesPath = $siteTemplatesPath = craft()->path->getSiteTemplatesPath();
+        
+        // Get List
+        $jsonList = UrlHelper::getResourceUrl('select2/lists/' . $settings->list . '.json');
+        
+        // Get List Contents
+        $json = file_get_contents($jsonList);
+        
+        // Decode to Array
+        $jsonOptions = json_decode($json, TRUE);
 
         $variables = array(
             'id' => $id,
             'name' => $name,
             'namespaceId' => $namespacedId,
+            'prefix' => craft()->templates->namespaceInputId(""),
             'value' => $value,
-            'options' => [
-            	['label' => 'Select', 'value' => 'Test'],
-            	['label' => 'Select', 'value' => 'Test'],
-            	['label' => 'Select', 'value' => 'Test'],
-            	['label' => 'Select', 'value' => 'Test'],
-            	['label' => 'Select', 'value' => 'Test']
-            ]
-            );
+            'options' => $jsonOptions,
+			'multiple' => $settings->multiple
+		);
 
         return craft()->templates->render('select2/field/field.twig', $variables);
     }
@@ -101,6 +102,11 @@ class Select2FieldType extends BaseFieldType
         return craft()->templates->render('select2/field/settings.twig', array(
             'settings' => $this->getSettings()
         ));
+    }
+    
+    public function prepSettings($settings)
+    {
+        return $settings;
     }
 
     /**

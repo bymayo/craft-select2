@@ -14,11 +14,21 @@
 
 {% import "_includes/forms" as forms %}
 
-{{ forms.multiSelectField({
+{% set fieldOptions = {
     id: id,
     class: 'js-select2',
     name: name,
     value: value,
     required: false,
     options: options
-}) }}
+} %}
+
+{% if multiple|length %}
+
+	{{ forms.multiSelectField(fieldOptions) }}
+
+{% else %}
+
+	{{ forms.selectField(fieldOptions) }}
+
+{% endif %}

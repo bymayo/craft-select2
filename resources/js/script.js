@@ -30,13 +30,9 @@
             var _this = this;
 
             $(function () {
-	            
-				$('#' + _this.options.namespace)
-					.select2(
-						{
-							theme: 'classic'
-						}
-					);
+
+				$('#' + _this.options.namespaceId)
+					.select2();
 
             });
         }
