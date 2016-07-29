@@ -69,7 +69,13 @@ class Select2FieldType extends BaseFieldType
             'name' => $name,
             'namespaceId' => $namespacedId,
             'value' => $value,
-            'options' => [['label' => 'Select', 'value' => 'Test']]
+            'options' => [
+            	['label' => 'Select', 'value' => 'Test'],
+            	['label' => 'Select', 'value' => 'Test'],
+            	['label' => 'Select', 'value' => 'Test'],
+            	['label' => 'Select', 'value' => 'Test'],
+            	['label' => 'Select', 'value' => 'Test']
+            ]
             );
 
         return craft()->templates->render('select2/field/field.twig', $variables);
