@@ -15,10 +15,10 @@
 {% import "_includes/forms" as forms %}
 
 {{ forms.multiSelectField({
-    id: id ~ '-id',
+    id: id,
     class: 'js-select2',
-    name: name ~ '[someField]',
-    value: value.someField,
+    name: name,
+    value: value,
     required: false,
     options: options
 }) }}

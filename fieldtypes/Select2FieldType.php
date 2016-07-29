@@ -41,28 +41,33 @@ class Select2FieldType extends BaseFieldType
         if (!$value)
             $value = new Select2Model();
 
+		// Reformat the input name into something that looks more like an ID
         $id = craft()->templates->formatInputId($name);
-        $namespacedId = craft()->templates->namespaceInputId($id);
-
-        craft()->templates->includeCssResource('select2/css/style.css');
-        craft()->templates->includeJsResource('select2/js/script.js');
         
-        craft()->templates->includeCssResource('select2/vendor/select2/css/select2.min.css');
-        craft()->templates->includeJsResource('select2/vendor/select2/js/select2.full.min.js');
-
-/* -- Variables to pass down to our field.js */
-
+        // Figure out what that ID is going to look like once it has been namespaced
+        $namespacedId = craft()->templates->namespaceInputId($id);
+        
+/*
+        Select2::log($id);
+        Select2::log($namespacedId);
+*/
+        
         $jsonVars = array(
             'id' => $id,
             'name' => $name,
             'namespace' => $namespacedId,
-            'prefix' => craft()->templates->namespaceInputId(""),
-            );
+            'prefix' => craft()->templates->namespaceInputId("")
+		);
 
         $jsonVars = json_encode($jsonVars);
-        craft()->templates->includeJs("$('#{$namespacedId}').Select2FieldType(" . $jsonVars . ");");
+        
+        craft()->templates->includeCssResource('select2/vendor/select2/dist/css/select2.min.css');
+        craft()->templates->includeJsResource('select2/vendor/select2/dist/js/select2.full.min.js');
+        
+        craft()->templates->includeCssResource('select2/css/style.css');
+        craft()->templates->includeJsResource('select2/js/script.js');
 
-/* -- Variables to pass down to our rendered template */
+        craft()->templates->includeJs("$('#{$namespacedId}').Select2FieldType(" . $jsonVars . ");");
 
         $variables = array(
             'id' => $id,

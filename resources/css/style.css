@@ -9,3 +9,7 @@
  * @package   Select2
  * @since     1.0.0
  */
+
+.js-select2 select {
+	width: 100%;
+}

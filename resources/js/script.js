@@ -31,16 +31,17 @@
 
             $(function () {
 	            
-	                $('.js-select2 select').select2();
-
-/* -- _this.options gives us access to the $jsonVars that our FieldType passed down to us */
+				$('#' + _this.options.namespace)
+					.select2(
+						{
+							theme: 'classic'
+						}
+					);
 
             });
         }
     };
 
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
     $.fn[pluginName] = function (options) {
         return this.each(function () {
             if (!$.data(this, "plugin_" + pluginName)) {
