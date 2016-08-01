@@ -15,11 +15,13 @@ namespace Craft;
 
 class Select2Plugin extends BasePlugin
 {
+	
     /**
      * @return mixed
      */
     public function init()
     {
+		craft()->templates->includeCssResource('select2/css/style.css');
     }
 
     /**
@@ -116,37 +118,6 @@ class Select2Plugin extends BasePlugin
      */
     public function onAfterUninstall()
     {
-    }
-
-    /**
-     * @return array
-     */
-    protected function defineSettings()
-    {
-        return array(
-            'jsonPath' => array(AttributeType::String, 'label' => 'JSON Path', 'default' => ''),
-        );
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSettingsHtml()
-    {
-       return craft()->templates->render('select2/settings/settings', array(
-           'settings' => $this->getSettings()
-       ));
-    }
-
-    /**
-     * @param mixed $settings  The Widget's settings
-     *
-     * @return mixed
-     */
-    public function prepSettings($settings)
-    {
-
-        return $settings;
     }
 
 }

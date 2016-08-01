@@ -15,6 +15,7 @@ namespace Craft;
 
 class Select2FieldType extends BaseFieldType
 {
+	
     /**
      * @return mixed
      */
@@ -29,6 +30,26 @@ class Select2FieldType extends BaseFieldType
     public function defineContentAttribute()
     {
         return AttributeType::Mixed;
+    }
+    
+    public function getJsonFiles()
+    {
+	    
+	    $config = craft()->config->get('select2'); // Make Global
+	    
+		$templateFolderPath = craft()->path->getSiteTemplatesPath();
+		
+		$jsonFolder = ($config['jsonFolder']) ? $config['jsonFolder'] : 'select2';
+		$jsonFolderPath = $templateFolderPath . $jsonFolder . '/';
+		$jsonFiles = [];
+				
+		if (IOHelper::folderExists($jsonFolderPath)) {
+			foreach(glob($jsonFolderPath . '*.json', GLOB_BRACE) as $jsonFile) {
+				array_push($jsonFiles, str_replace($jsonFolderPath, "", $jsonFile));
+			}
+			return $jsonFiles;
+		}
+	    
     }
 
     /**
@@ -63,10 +84,8 @@ class Select2FieldType extends BaseFieldType
 
         craft()->templates->includeJs("$('#{$namespacedId}').Select2FieldType(".$jsonVars.");");
         
-        // $templatesPath = $siteTemplatesPath = craft()->path->getSiteTemplatesPath();
-        
         // Get List
-        $jsonList = UrlHelper::getResourceUrl('select2/lists/' . $settings->list . '.json');
+        $jsonList = UrlHelper::getResourceUrl('select2/json/' . $settings->list . '.json');
         
         // Get List Contents
         $json = file_get_contents($jsonList);
@@ -99,8 +118,10 @@ class Select2FieldType extends BaseFieldType
     
     public function getSettingsHtml()
     {
+	    
         return craft()->templates->render('select2/field/settings.twig', array(
-            'settings' => $this->getSettings()
+            'settings' => $this->getSettings(),
+            'jsonFiles' => $this->getJsonFiles()
         ));
     }
     

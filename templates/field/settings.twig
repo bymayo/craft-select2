@@ -65,11 +65,28 @@
     }
 }) }}
 
-{{ forms.textField({
-    label: 'JSON'|t,
-    instructions: 'JSON files are pulled from the <strong><a href="/admin/settings/plugins/select2" target="_blank">JSON Location</a></strong> option in the Select2 fieldtype settings',
-    id: 'json',
-    name: 'json',
-    value: settings.json,
-    placeholder: 'e.g. countries.json'
-}) }}
+<select>
+	<optgroup label="Countries">
+		<option>2 Digit ISO</option>
+	</optgroup>
+</select>
+
+{% if jsonFiles|length %}
+	{{ forms.selectField({
+	    label: 'JSON'|t,
+	    id: 'json',
+	    name: 'json',
+	    value: settings.json,
+		options: jsonFiles
+	}) }}
+{% else %}
+	<div class="field">
+		<div class="heading">
+			<label>JSON</label>
+		</div>
+		<strong class="warning">No JSON file(s) exist</strong>
+		<p class="select2-alert">
+			JSON files are pulled from the <code>select2</code> folder inside the templates folder. Unless a different folder has been set using the 		<code>jsonFolder</code> config setting. <a href="#" target="_blank">See Documentation</a>
+		</p>
+	</div>
+{% endif %}

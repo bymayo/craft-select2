@@ -17,3 +17,20 @@
 .js-select2 select {
 	width: 100%;
 }
+
+.select2-alert {
+	background-color: #f2f2f2;
+	margin-top: 0.5em;
+	color: #494949;
+	font-size: 12px;
+	padding: 0.8em;
+}
+
+.select2-alert code {
+	background-color: #373737;
+	color: #fff;
+	padding: 0.5em 0.7em;
+	border-radius: 2px;
+	font-size: 11px;
+	margin: 0 0.1em;
+}
