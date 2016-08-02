@@ -18,17 +18,19 @@
     id: id,
     class: 'js-select2',
     name: name,
-    value: value,
+    values: value,
     required: false,
     options: options
 } %}
 
-{% if multiple|length %}
+{% if settings['multiple']|length %}
 
+	{# Select - Multiple #}
 	{{ forms.multiSelectField(fieldOptions) }}
-
+	
 {% else %}
 
+	{# Select - Single #}
 	{{ forms.selectField(fieldOptions) }}
-
+	
 {% endif %}

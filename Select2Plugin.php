@@ -22,6 +22,7 @@ class Select2Plugin extends BasePlugin
     public function init()
     {
 		craft()->templates->includeCssResource('select2/css/style.css');
+		craft()->templates->includeJsResource('select2/js/settings.js');
     }
 
     /**

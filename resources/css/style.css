@@ -34,3 +34,11 @@
 	font-size: 11px;
 	margin: 0 0.1em;
 }
+
+.js-select2-json {
+	display: none;
+}
+
+.js-select2-json.is-visible {
+	display: block;
+}

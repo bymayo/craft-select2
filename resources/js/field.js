@@ -32,7 +32,13 @@
             $(function () {
 
 				$('#' + _this.options.namespaceId)
-					.select2();
+					.select2(
+						{
+							placeholder: _this.options.placeholder,
+							maximumSelectionLength: _this.options.limit,
+							allowClear: true
+						}
+					);
 
             });
         }
