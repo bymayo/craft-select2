@@ -11,6 +11,4 @@
  * @since     1.0.0
  */
 
-return array(
-    'Translate me' => 'To this',
-);
+return array();

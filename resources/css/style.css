@@ -10,35 +10,39 @@
  * @since     1.0.0
  */
  
- .js-select2 {
-	 width: 100%;
- }
+ /* Field */
+ 
+	 .js-select2 {
+		 width: 100%;
+	 }
+	
+	.js-select2 select {
+		width: 100%;
+	}
+	
+/* Field Settings */
 
-.js-select2 select {
-	width: 100%;
-}
+	.select2-alert {
+		background-color: #f2f2f2;
+		margin-top: 0.5em;
+		color: #494949;
+		font-size: 12px;
+		padding: 0.8em;
+	}
 
-.select2-alert {
-	background-color: #f2f2f2;
-	margin-top: 0.5em;
-	color: #494949;
-	font-size: 12px;
-	padding: 0.8em;
-}
+	.select2-alert code {
+		background-color: #373737;
+		color: #fff;
+		padding: 0.5em 0.7em;
+		border-radius: 2px;
+		font-size: 11px;
+		margin: 0 0.1em;
+	}
 
-.select2-alert code {
-	background-color: #373737;
-	color: #fff;
-	padding: 0.5em 0.7em;
-	border-radius: 2px;
-	font-size: 11px;
-	margin: 0 0.1em;
-}
-
-.js-select2-json {
-	display: none;
-}
-
-.js-select2-json.is-visible {
-	display: block;
-}
+	.js-select2-json {
+		display: none;
+	}
+	
+	.js-select2-json.is-visible {
+		display: block;
+	}

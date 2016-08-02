@@ -46,7 +46,7 @@ class Select2Plugin extends BasePlugin
      */
     public function getDocumentationUrl()
     {
-        return 'https://github.com/bymayo/select2/blob/master/README.md';
+        return 'https://github.com/madebyshape/select2/blob/master/README.md';
     }
 
     /**
@@ -54,7 +54,7 @@ class Select2Plugin extends BasePlugin
      */
     public function getReleaseFeedUrl()
     {
-        return 'https://raw.githubusercontent.com/bymayo/select2/master/releases.json';
+        return 'https://raw.githubusercontent.com/madebyshape/select2/master/releases.json';
     }
 
     /**

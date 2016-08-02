@@ -19,18 +19,12 @@
     class: 'js-select2',
     name: name,
     values: value,
-    required: false,
     options: options
 } %}
 
 {% if settings['multiple']|length %}
-
-	{# Select - Multiple #}
 	{{ forms.multiSelectField(fieldOptions) }}
-	
 {% else %}
-
 	{# Select - Single #}
 	{{ forms.selectField(fieldOptions) }}
-	
 {% endif %}
