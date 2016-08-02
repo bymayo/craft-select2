@@ -146,11 +146,11 @@ class Select2FieldType extends BaseFieldType
     protected function defineSettings()
     {
         return array(
-            'multiple' => array(AttributeType::String),
-            'limit' => array(AttributeType::String),
-            'placeholder' => array(AttributeType::String),
             'list' => array(AttributeType::String),
-            'jsonFile' => array(AttributeType::String)
+            'jsonFile' => array(AttributeType::String),
+            'placeholder' => array(AttributeType::String),
+            'multiple' => array(AttributeType::String),
+            'limit' => array(AttributeType::String)
         );
     }
     
