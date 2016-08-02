@@ -3,56 +3,30 @@
 {% set select2ListValue = (settings.list ? settings.list : 'json') %}
 
 {{ forms.selectField({
-    label: 'List'|t,
+    label: 'List',
     id: 'list',
     class: 'js-select2-list',
     name: 'list',
     value: select2ListValue,
     required: true,
     options: {
-		'json' : {
-            'value': 'json',
-            'label': 'JSON'
-		},
-		'countries' : {
-            'value': 'countries',
-            'label': 'Countries'
-		},
-		'countriesIso2' : {
-            'value': 'countriesIso2',
-            'label': 'Countries (2 Digit ISO)'
-		},
-		'countriesIso3' : {
-            'value': 'countriesIso3',
-            'label': 'Countries (3 Digit ISO)'
-		},
-		'currencyIso3' : {
-            'value': 'currencyIso3',
-            'label': 'Currency (3 Digit ISO)'
-		},
-		'languagesIso2' : {
-            'value': 'languagesIso2',
-            'label': 'Languages (2 Digit ISO)'
-		},
-		'socialNetworks' : {
-            'value': 'socialNetworks',
-            'label': 'Social Networks'
-		},
-		'ukCounties' : {
-            'value': 'ukCounties',
-            'label': 'UK Counties'
-		},
-		'usStates' : {
-            'value': 'usStates',
-            'label': 'US States'
-		}		
+		'json': 'JSON',
+		'countries': 'Countries',
+		'countries': 'Countries',
+		'countriesIso2': 'Countries (2 Digit ISO)',
+		'countriesIso3': 'Countries (3 Digit ISO)',
+		'currencyIso3': 'Currency (3 Digit ISO)',
+		'languagesIso2': 'Languages (2 Digit ISO)',
+		'socialNetworks': 'Countries',
+		'ukCounties': 'UK Counties',
+		'usStates': 'US States'
     }
 }) }}
 
 <div class="js-select2-json{% if select2ListValue == 'json'%} is-visible{% endif %}">
 	{% if jsonFiles|length %}
 		{{ forms.selectField({
-		    label: 'JSON File'|t,
+		    label: 'JSON File',
 		    id: 'jsonFile',
 		    name: 'jsonFile',
 		    value: settings.jsonFile,
@@ -72,7 +46,7 @@
 </div>
 
 {{ forms.lightswitchField({
-    label: 'Select Multiple?'|t,
+    label: 'Select Multiple?',
     id: 'multiple',
     name: 'multiple',
     on: settings.multiple, 
@@ -80,16 +54,15 @@
 }) }}
 
 {{ forms.textField({
-    label: 'Limit'|t,
+    label: 'Limit',
     type: 'number',
-    instructions: 'Limit the amount of results that can be selected.',
     id: 'limit',
     name: 'limit',
     value: settings.limit
 }) }}
 
 {{ forms.textField({
-    label: 'Placeholder'|t,
+    label: 'Placeholder',
     type: 'text',
     id: 'placeholder',
     name: 'placeholder',
