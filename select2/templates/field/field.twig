@@ -18,13 +18,14 @@
     id: id,
     class: 'js-select2',
     name: name,
-    values: value,
     options: options
 } %}
 
 {% if settings['multiple']|length %}
+	{% set fieldOptions = fieldOptions|merge({ values: value}) %}
 	{{ forms.multiSelectField(fieldOptions) }}
 {% else %}
 	{# Select - Single #}
+	{% set fieldOptions = fieldOptions|merge({ value: value}) %}
 	{{ forms.selectField(fieldOptions) }}
 {% endif %}
