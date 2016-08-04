@@ -32,11 +32,11 @@
             $(function () {
 
 				$('#' + _this.options.namespaceId)
-					.select2(
+					.selectize(
 						{
-							placeholder: _this.options.placeholder,
-							maximumSelectionLength: _this.options.limit,
-							allowClear: true
+							plugins: ['remove_button', 'restore_on_backspace'],
+							maxItems: _this.options.limit,
+							placeholder: _this.options.placeholder
 						}
 					);
 

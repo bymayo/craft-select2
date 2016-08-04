@@ -122,6 +122,9 @@ class Select2FieldType extends BaseFieldType
         craft()->templates->includeCssResource('select2/vendor/select2/dist/css/select2.min.css');
         craft()->templates->includeJsResource('select2/vendor/select2/dist/js/select2.full.min.js');
         
+        craft()->templates->includeCssResource('select2/vendor/selectize/css/selectize.css');
+        craft()->templates->includeJsResource('select2/vendor/selectize/js/selectize.js');
+        
         // Include field CSS & JS
         craft()->templates->includeCssResource('select2/css/style.css');
         craft()->templates->includeJsResource('select2/js/field.js');
