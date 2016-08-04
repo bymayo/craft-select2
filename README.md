@@ -43,7 +43,7 @@ Select2 gives you the ability to add custom JSON files to the fields. To do this
 
 This folder name can be changed by defining the the config settings below in your `craft/config/general.php` file.
 
-```json
+```
    'select2' => [
 	   'jsonFolder' => 'arrays'
    ]
