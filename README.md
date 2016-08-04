@@ -35,21 +35,47 @@ You can also specify your own JSON files, which means if you require the same fi
 
 (If you have a list idea that you'd like included, please start a Github Issue)
 
-## Usage
+## Using custom JSON files
 
-### Using custom JSON files
+Select2 gives you the ability to add custom JSON files to the fields. 
 
-Select2 gives you the ability to add custom JSON files to the fields. To do this create a `select2` folder inside your `craft/templates` folder. 
+### Setup
+
+To use custom JSON files, create a `select2` folder inside your `craft/templates` folder. 
 
 This folder name can be changed by defining the the config settings below in your `craft/config/general.php` file.
 
 ```
-   'select2' => [
-	   'jsonFolder' => 'arrays'
-   ]
+'select2' => [
+   'jsonFolder' => 'jsonFolder'
+]
 ```
    
 By placing your JSON files inside this folder, they will automatically appear in the `JSON` list when setting up the field.
+
+### JSON Format
+
+To make sure the data loads in to the field correctly, the JSON files you create need to have a label and a value. For example -
+
+```
+[
+    {
+        "label": "Hamburger",
+        "value": "hamburger"
+    },
+    {
+        "label": "Hot Dog",
+        "value": "hotDog"
+    },
+    {
+        "label": "Chicken Wings",
+        "value": "chickenWings"
+    }
+]
+```
+
+The content inside label and value can be formatted however you wish (camelCase, UPPERCASE etc).
+
 
 ## Field Settings
 
