@@ -1,14 +1,11 @@
 <?php
 /**
- * Select2 plugin for Craft CMS
- *
- * Select2 FieldType
+ * Select2
  *
  * @author    Jason Mayo
- * @copyright Copyright (c) 2016 Jason Mayo
- * @link      bymayo.co.uk
- * @package   Select2
- * @since     1.0.0
+ * @twitter   @madebymayo
+ * @package   Points
+ *
  */
 
 namespace Craft;
@@ -16,8 +13,11 @@ namespace Craft;
 class Select2FieldType extends BaseFieldType
 {
 	
+	
     /**
-     * @return mixed
+     * Get Name
+     *
+	 * @return mixed
      */
     public function getName()
     {
@@ -25,16 +25,20 @@ class Select2FieldType extends BaseFieldType
     }
 
     /**
-     * @return mixed
+     * Entries - List
+     *
+	 * @return mixed
      */
     public function defineContentAttribute()
     {
         return AttributeType::Mixed;
     }
     
-    /*
-	 * Get JSON folder path
-	 */
+    /**
+     * Get JSON Folder Path
+     *
+	 * @return string
+     */
     public function getJsonFolderPath()
     {
 	    
@@ -48,9 +52,11 @@ class Select2FieldType extends BaseFieldType
 	    
     }
     
-    /*
-	 * Get JSON Files
-	 */
+    /**
+     * Get JSON Files
+     *
+	 * @return array
+     */
     public function getJsonFiles()
     {
 	    
@@ -69,9 +75,11 @@ class Select2FieldType extends BaseFieldType
 	    
     }
     
-    /*
-	 * Get JSON File Options
-	 */
+    /**
+     * Get JSON File Options
+     *
+	 * @return array
+     */
     public function getJsonFileOptions($list, $json = null)
     {
 	    
@@ -92,9 +100,9 @@ class Select2FieldType extends BaseFieldType
     }
 
     /**
-     * @param string $name
-     * @param mixed  $value
-     * @return string
+     * Get Input HTML (Field Main Function)
+     *
+	 * @return mixed
      */
     public function getInputHtml($name, $value)
     {
@@ -142,6 +150,11 @@ class Select2FieldType extends BaseFieldType
         return craft()->templates->render('select2/field/field.twig', $fieldOptions);
     }
     
+    /**
+     * Define Settings
+     *
+	 * @return array
+     */
     protected function defineSettings()
     {
         return array(
@@ -153,6 +166,11 @@ class Select2FieldType extends BaseFieldType
         );
     }
     
+    /**
+     * Get Settings HTML
+     *
+	 * @return mixed
+     */
     public function getSettingsHtml()
     {
 	    
@@ -162,14 +180,20 @@ class Select2FieldType extends BaseFieldType
         ));
     }
     
+    /**
+     * Prep Settings
+     *
+	 * @return mixed
+     */
     public function prepSettings($settings)
     {
         return $settings;
     }
 
     /**
-     * @param mixed $value
-     * @return mixed
+     * Prep Value from Post
+     *
+	 * @return mixed
      */
     public function prepValueFromPost($value)
     {
@@ -177,8 +201,9 @@ class Select2FieldType extends BaseFieldType
     }
 
     /**
-     * @param mixed $value
-     * @return mixed
+     * Prep Value
+     *
+	 * @return mixed
      */
     public function prepValue($value)
     {

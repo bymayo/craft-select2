@@ -1,23 +1,11 @@
-/**
- * Select2 plugin for Craft CMS
- *
- * Select2FieldType CSS
- *
- * @author    Jason Mayo
- * @copyright Copyright (c) 2016 Jason Mayo
- * @link      bymayo.co.uk
- * @package   Select2
- * @since     1.0.0
- */
+/* Field */
  
- /* Field */
- 
-	 .js-select2 {
-		 width: 100%;
+	.js-select2 {
+		width: 100%;
 		background: none !important;
 		border: none !important;
 		box-shadow: none !important;
-	 }
+	}
 	
 	.js-select2 select {
 		width: 100%;
@@ -32,7 +20,7 @@
 		font-size: 12px;
 		padding: 0.8em;
 	}
-
+	
 	.select2-alert code {
 		background-color: #373737;
 		color: #fff;
@@ -41,7 +29,7 @@
 		font-size: 11px;
 		margin: 0 0.1em;
 	}
-
+	
 	.js-select2-json {
 		display: none;
 	}

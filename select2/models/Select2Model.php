@@ -1,22 +1,22 @@
 <?php
 /**
- * Select 2 plugin for Craft CMS
- *
- * Select2 Model
+ * Select2
  *
  * @author    Jason Mayo
- * @copyright Copyright (c) 2016 Jason Mayo
- * @link      bymayo.co.uk
- * @package   Select2
- * @since     1
+ * @twitter   @madebymayo
+ * @package   Points
+ *
  */
 
 namespace Craft;
 
 class Select2Model extends BaseModel
 {
+
     /**
-     * @return array
+     * Define Attributes
+     *
+	 * @return array
      */
     protected function defineAttributes()
     {
