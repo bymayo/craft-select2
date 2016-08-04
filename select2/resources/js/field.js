@@ -31,10 +31,9 @@
             $(function () {
 
 				$('#' + _this.options.namespaceId)
-					.selectize(
+					.select2(
 						{
-							plugins: ['remove_button', 'restore_on_backspace'],
-							maxItems: _this.options.limit,
+							limit: _this.options.limit,
 							placeholder: _this.options.placeholder
 						}
 					);

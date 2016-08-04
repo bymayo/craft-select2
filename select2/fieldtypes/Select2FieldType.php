@@ -118,8 +118,8 @@ class Select2FieldType extends BaseFieldType
 
         $pluginOptions = json_encode($pluginOptions);
         
-        craft()->templates->includeCssResource('select2/vendor/selectize/css/selectize.css');
-        craft()->templates->includeJsResource('select2/vendor/selectize/js/selectize.js');
+        craft()->templates->includeCssResource('select2/vendor/select2/css/select2.css');
+        craft()->templates->includeJsResource('select2/vendor/select2/js/select2.full.js');
         
         // Include field CSS & JS
         craft()->templates->includeCssResource('select2/css/style.css');
