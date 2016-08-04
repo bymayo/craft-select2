@@ -90,7 +90,7 @@ The content inside label and value can be formatted however you wish (camelCase,
 	</tr>
 	<tr>
 		<td>JSON</td>
-		<td>Pulls through all JSON files stored in the `select2` folder (See **Using custom JSON files**)</td>
+		<td>Pulls through all JSON files stored in the `select2` folder (See <strong>Using custom JSON files</strong>)</td>
 	</tr>
 	<tr>
 		<td>Multiple</td>
@@ -111,7 +111,7 @@ The content inside label and value can be formatted however you wish (camelCase,
 Select2 outputs either a string or array depending on if you have checked the multiple option when setting up the field. The TWIG code for this is very basic and no different to looping through a Matrix etc. For example, if your field is called `profileCountries` the template tags would be:
 
 ```HTML
-{% for county in entry.profileCountries %}
+{% for country in entry.profileCountries %}
 	{{ country }}
 {% endfor %}
 ```
