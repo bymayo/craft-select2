@@ -86,7 +86,7 @@ class Select2Plugin extends BasePlugin
      */
     public function getDeveloperUrl()
     {
-        return 'bymayo.co.uk';
+        return 'http://bymayo.co.uk';
     }
 
     /**

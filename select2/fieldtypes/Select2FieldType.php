@@ -112,15 +112,11 @@ class Select2FieldType extends BaseFieldType
         // Options to pass to fieldtype jQuery plugin
         $pluginOptions = array(
             'namespaceId' => $namespacedId,
-            'limit' => $settings->limit,
-            'placeholder' => $settings->placeholder
+            'limit' => ($settings->limit) ? $settings->limit : 1,
+            'placeholder' => ($settings->placeholder) ? $settings->placeholder : 'Select an Option',
 		);
 
         $pluginOptions = json_encode($pluginOptions);
-        
-        // Include Select2
-        craft()->templates->includeCssResource('select2/vendor/select2/dist/css/select2.min.css');
-        craft()->templates->includeJsResource('select2/vendor/select2/dist/js/select2.full.min.js');
         
         craft()->templates->includeCssResource('select2/vendor/selectize/css/selectize.css');
         craft()->templates->includeJsResource('select2/vendor/selectize/js/selectize.js');

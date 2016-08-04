@@ -13,8 +13,7 @@
  ;(function ( $, window, document, undefined ) {
 
     var pluginName = "Select2FieldType",
-        defaults = {
-        };
+        defaults = {};
 
     function Plugin(element, options) {
         this.element = element;
