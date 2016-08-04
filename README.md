@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/madebyshape/select2/master/screenshots/icon.png" width="50">
+<img src="https://github.com/madebyshape/select2/raw/master/screenshots/icon.png" width="50">
 
 # Select2
 
