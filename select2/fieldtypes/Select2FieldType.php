@@ -92,7 +92,12 @@ class Select2FieldType extends BaseFieldType
 	    }
 
         // Get List Contents
-        $json = file_get_contents($jsonList);
+        if (craft()->config->get('devMode')) {
+            // Prevent invalid SSL certificate yelling while in devMode
+            $json = file_get_contents($jsonList, false, stream_context_create(array('ssl' => array('verify_peer' => false, 'verify_peer_name' => false))));
+        } else {
+            $json = file_get_contents($jsonList);
+        }
         
         // Decode to Array
 		return json_decode($json, TRUE);
