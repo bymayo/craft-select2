@@ -1,0 +1,40 @@
+{
+    "name": "bymayo/select2",
+    "description": "Fieldtype that uses the Select2 jQuery plugin as a replacement to <select> fields to enable better filtering of options.",
+    "type": "craft-plugin",
+    "version": "2.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "select2"
+    ],
+    "support": {
+        "docs": "https://github.com/bymayo/select2/blob/master/README.md",
+        "issues": "https://github.com/bymayo/select2/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ByMayo",
+            "homepage": "http://bymayo.co.uk"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "bymayo\\select2\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Select2",
+        "handle": "select2",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/bymayo/select2/master/CHANGELOG.md",
+        "class": "bymayo\\select2\\Select2"
+    }
+}

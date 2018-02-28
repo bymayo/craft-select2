@@ -1,129 +1,43 @@
-<img src="https://github.com/bymayo/select2/raw/master/screenshots/icon.png" width="50">
+# Select2 plugin for Craft CMS 3.x
 
-# Select2
+Fieldtype that uses the Select2 jQuery plugin as a replacement to <select> fields to enable better filtering of options.
 
-Select2 is a Craft CMS fieldtype that uses the popular jQuery plugin - `Select2` (https://select2.github.io). It extends the functionality of a `<select>` field, allowing users to search/filter down their options.
+![Screenshot](resources/img/plugin-logo.png)
 
-This fieldtype also comes with predefined JSON lists to take the chore out of creating fields such as Country, State or Social Network `<select>` fields. 
+## Requirements
 
-You can also specify your own JSON files, which means if you require the same field inside a Matrix or a Supertable for example, you don't have to create all them options again!
+This plugin requires Craft CMS 3.0.0-beta.23 or later.
 
-## Features
+## Installation
 
-- Extends `<select>` field, allowing to search and filter `<option>`'s
-- Allow multiple option selections
-- Limit the amount of options that can be selected
-- Placeholder
-- Predefined JSON lists
-- Add custom JSON files
+To install the plugin, follow these instructions.
 
-## Install
+1. Open your terminal and go to your Craft project:
 
-- Add the `select2` directory into your `craft/plugins` directory.
-- Navigate to Settings -> Plugins and click the "Install" button.
+        cd /path/to/project
 
-## Predefined JSON Lists
+2. Then tell Composer to load the plugin:
 
-- Countries `United Kingdom`
-- Countries (2 Digit ISO) `GB`
-- Countries (3 Digit ISO) `GBR`
-- Currency (3 Digit ISO) `EUR`
-- Languages (2 Digit ISO) `EN`
-- Social Networks `Facebook`
-- UK Counties `Greater Manchester`
-- US States `NY`
+        composer require bymayo/select2
 
-(If you have a list idea that you'd like included, please start a Github Issue)
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Select2.
 
-## Using custom JSON files
+## Select2 Overview
 
-Select2 gives you the ability to add custom JSON files to the fields. 
+-Insert text here-
 
-### Setup
+## Configuring Select2
 
-To use custom JSON files, create a `select2` folder inside your `craft/templates` folder. 
+-Insert text here-
 
-This folder name can be changed by defining the the config settings below in your `craft/config/general.php` file.
+## Using Select2
 
-```
-'select2' => [
-   'jsonFolder' => 'jsonFolder'
-]
-```
-   
-By placing your JSON files inside this folder, they will automatically appear in the `JSON` list when setting up the field.
+-Insert text here-
 
-### JSON Format
+## Select2 Roadmap
 
-To make sure the data loads in to the field correctly, the JSON files you create need to have a label and a value. For example -
+Some things to do, and ideas for potential features:
 
-```
-[
-    {
-        "label": "Hamburger",
-        "value": "hamburger"
-    },
-    {
-        "label": "Hot Dog",
-        "value": "hotDog"
-    },
-    {
-        "label": "Chicken Wings",
-        "value": "chickenWings"
-    }
-]
-```
+* Release it
 
-The content inside label and value can be formatted however you wish (camelCase, UPPERCASE etc).
-
-
-## Field Settings
-
-<table>
-	<tr>
-		<td><strong>Setting</strong></td>
-		<td><strong>Description</strong></td>
-	</tr>
-	<tr>
-		<td>List</td>
-		<td>Allows you to choose a predefined list, or select JSON to specify your own list</td>
-	</tr>
-	<tr>
-		<td>JSON</td>
-		<td>Pulls through all JSON files stored in the `select2` folder (See <strong>Using custom JSON files</strong>)</td>
-	</tr>
-	<tr>
-		<td>Multiple</td>
-		<td>If you want to allow more than 1 option to be selected, turn this switch on</td>
-	</tr>
-	<tr>
-		<td>Limit</td>
-		<td>If Multiple is set, then you can specify the maximum amount of options that can be selected</td>
-	</tr>
-	<tr>
-		<td>Placeholder</td>
-		<td>A placeholder that appears in the Select2 field, e.g. 'Please Select a Country'</td>
-	</tr>
-</table>
-
-## Templating
-
-Select2 outputs either a string or array depending on if you have checked the multiple option when setting up the field. The TWIG code for this is very basic and no different to looping through a Matrix etc. For example, if your field is called `profileCountries` the template tags would be:
-
-```HTML
-{% for country in entry.profileCountries %}
-	{{ country }}
-{% endfor %}
-```
-
-## Roadmap
-
-- More predefined JSON lists
-- Template tags to output both label and value
-- Ability to add `<optgroup>`'s
-- Ability to add more than a label and value
-- Adjust CSS (Possibly port it to SASS) to make the field work better with Craft CMS styling
-
-## Credits
-
-- Drop Down Menu by Nick Bluth from Noun Project (https://thenounproject.com/npbluth)
+Brought to you by [ByMayo](http://bymayo.co.uk)

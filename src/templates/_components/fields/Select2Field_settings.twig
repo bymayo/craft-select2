@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Select2 plugin for Craft CMS
+ *
+ * Select2Field Field Settings
+ *
+ * @author    ByMayo
+ * @copyright Copyright (c) 2018 ByMayo
+ * @link      http://bymayo.co.uk
+ * @package   Select2
+ * @since     2.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("bymayo\\select2\\assetbundles\\select2\\Select2Asset") %}
+
+{{ forms.textField({
+    label: 'Some Attribute',
+    instructions: 'Enter some attribute here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: field['someAttribute']})
+}}

@@ -1,0 +1,24 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Select2 plugin for Craft CMS 3.x
+ *
+ * Select2Field Field Input
+ *
+ * @author    ByMayo
+ * @copyright Copyright (c) 2018 ByMayo
+ * @link      http://bymayo.co.uk
+ * @package   Select2
+ * @since     2.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+        label: 'Some Field',
+        instructions: 'Enter some text here.',
+        id: name,
+        name: name,
+        value: value})
+}}
