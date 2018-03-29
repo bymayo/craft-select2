@@ -83,16 +83,33 @@ class Select2FieldType extends BaseFieldType
     public function getJsonFileOptions($list, $json = null)
     {
 	    
-        // Get List	    
-	    if ($list === 'json') {
-	        $jsonList = $this->getJsonFolderPath() . $json;		    
-	    }
-	    else {
-	        $jsonList = UrlHelper::getResourceUrl('select2/json/' . $list . '.json');
-	    }
+        if ($list === 'jsonTwig') {
+            
+            // Record original templates path
+            $originalPath = craft()->path->getTemplatesPath();
+            
+            $path = craft()->path->getSiteTemplatesPath();
 
-        // Get List Contents
-        $json = file_get_contents($jsonList);
+            // Set new path for twig render
+            craft()->path->setTemplatesPath($path);
+            $jsonList = craft()->templates->render('select2/athletes.json');
+
+            // Set templates path back to original
+            craft()->path->setTemplatesPath($originalPath);
+        } 
+        else {
+        
+            // Get List	    
+            if ($list === 'json') {
+                $jsonList = $this->getJsonFolderPath() . $json;		    
+            }
+            else {
+                $jsonList = UrlHelper::getResourceUrl('select2/json/' . $list . '.json');
+            }
+
+            // Get List Contents
+            $json = file_get_contents($jsonList);
+        }
         
         // Decode to Array
 		return json_decode($json, TRUE);

@@ -11,6 +11,7 @@
     required: true,
     options: {
 		'json': 'JSON',
+		'jsonTwig' : 'JSON (Twig)',
 		'countries': 'Countries',
 		'countries': 'Countries',
 		'countriesIso2': 'Countries (2 Digit ISO)',
@@ -23,7 +24,7 @@
     }
 }) }}
 
-<div class="js-select2-json{% if select2ListValue == 'json'%} is-visible{% endif %}">
+<div class="js-select2-json{% if select2ListValue == 'json' or select2ListValue == 'jsonTwig' %} is-visible{% endif %}">
 	{% if jsonFiles|length %}
 		{{ forms.selectField({
 		    label: 'JSON File',
