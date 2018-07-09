@@ -104,14 +104,12 @@ class Select2FieldType extends BaseFieldType
      *
 	 * @return mixed
      */
-    public function getInputHtml($name, $value)
+    public function getInputHtml($name, $value = '')
     {
-        if (!$value) $value = new Select2Model();
+	// Get Field Settings
+	$settings = $this->getSettings();
 
-		// Get Field Settings
-		$settings = $this->getSettings();
-
-		// Reformat the input name into something that looks more like an ID
+	// Reformat the input name into something that looks more like an ID
         $id = craft()->templates->formatInputId($name);
         
         // Figure out what that ID is going to look like once it has been namespaced
